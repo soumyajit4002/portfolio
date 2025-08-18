@@ -1,15 +1,15 @@
-/* General Reset */
+/* --- your existing CSS (unchanged) --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;  /* Smooth scroll effect */
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #fff;  /* main background white */
-  color: #000;       /* text black */
+  background: #fff;
+  color: #000;
   line-height: 1.6;
 }
 
@@ -42,9 +42,7 @@ nav {
   gap: 25px;
 }
 
-.nav-links li {
-  list-style: none;
-}
+.nav-links li { list-style: none; }
 
 .nav-links a {
   position: relative;
@@ -71,18 +69,14 @@ nav {
 }
 
 .nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 8px;
-}
+.nav-links a.active::after { width: 8px; }
 
 .nav-links a:hover {
   color: #555;
   transform: scale(1.05);
 }
 
-.nav-links i {
-  font-size: 1.2rem;
-}
+.nav-links i { font-size: 1.2rem; }
 
 /* Home */
 .home {
@@ -95,9 +89,8 @@ nav {
   gap: 50px;
 }
 
-/* Reverse photo and text */
 .home-photo {
-  order: 0; /* photo first */
+  order: 0;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -105,7 +98,7 @@ nav {
 }
 
 .home-text {
-  order: 1; /* text second */
+  order: 1;
   flex: 1;
   animation: fadeInRight 1s ease;
   text-align: left;
@@ -117,19 +110,11 @@ nav {
   font-weight: bold;
 }
 
-.home-text .name span {
-  color: #000;
-}
+.home-text .name span { color: #000; }
+.home-text .tagline { font-size: 1.3rem; color: #000; }
 
-.home-text .tagline {
-  font-size: 1.3rem;
-  color: #000;
-}
-
-/* Buttons under tagline */
-.home-buttons {
-  margin-top: 20px;
-}
+/* Buttons */
+.home-buttons { margin-top: 20px; }
 
 .home-buttons .btn {
   display: inline-block;
@@ -145,9 +130,7 @@ nav {
   border: 2px solid transparent;
 }
 
-.home-buttons .btn i {
-  margin-right: 8px;
-}
+.home-buttons .btn i { margin-right: 8px; }
 
 .home-buttons .btn:hover {
   background: goldenrod;
@@ -157,10 +140,7 @@ nav {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
 }
 
-.home-buttons .linkedin-btn {
-  background: #0077b5; /* LinkedIn blue */
-}
-
+.home-buttons .linkedin-btn { background: #0077b5; }
 .home-buttons .linkedin-btn:hover {
   background: goldenrod;
   color: #000;
@@ -292,11 +272,7 @@ nav {
   font-size: 1.5rem;
 }
 
-.project-box p {
-  color: #000;
-  margin-bottom: 15px;
-  font-size: 1rem;
-}
+.project-box p { color: #000; margin-bottom: 15px; font-size: 1rem; }
 
 .project-box a {
   display: inline-block;
@@ -327,7 +303,7 @@ nav {
   margin-bottom: 20px;
 }
 
-/* Social Links Boxes */
+/* Social Links */
 .social-links {
   display: flex;
   justify-content: center;
@@ -382,22 +358,43 @@ footer {
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* Responsive */
+/* --- Responsive Additions --- */
+.menu-toggle { display: none; }
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .home { flex-direction: column; text-align: center; }
+  .home-text { text-align: center; }
+  .home-photo img { width: 250px; height: 250px; }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .home {
+  .menu-toggle { display: block; font-size: 1.8rem; color: #000; cursor: pointer; }
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
     flex-direction: column;
-    text-align: center;
+    background: #fff;
+    display: none;
+    padding: 20px 0;
   }
+  .nav-links.active { display: flex; }
+  .nav-links li { margin: 15px 0; text-align: center; }
 
-  .home-photo, .home-text {
-    order: 0;
-  }
+  .home { padding: 60px 5%; }
+  .home-text .name { font-size: 2.2rem; }
+  .home-text .tagline { font-size: 1.1rem; }
+  .home-buttons .btn { margin-bottom: 12px; }
+}
 
-  .home-photo {
-    margin-bottom: 20px;
-  }
-
-  .social-links {
-    gap: 15px;
-  }
+/* Small phones */
+@media (max-width: 480px) {
+  .logo { font-size: 1.4rem; }
+  .home-text .name { font-size: 1.8rem; }
+  .home-text .tagline { font-size: 1rem; }
+  .home-photo img { width: 180px; height: 180px; }
+  .skills h2, .projects h2, .about h2, .contact h2 { font-size: 2rem; }
 }
