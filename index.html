@@ -14,6 +14,7 @@
   <header>
     <nav>
       <div class="logo">Soumyajit Chakraborty</div>
+      <div class="menu-toggle"><i class="fas fa-bars"></i></div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -119,5 +120,15 @@
   <footer>
     <p>© 2025 Soumyajit Chakraborty | Portfolio</p>
   </footer>
+
+  <!-- Script for mobile menu -->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
